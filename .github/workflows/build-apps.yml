@@ -1,0 +1,41 @@
+name: Build Mobile Apps
+on:
+  push:
+    branches: [ main ]
+
+# We set the tokens and variables globally here
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          # No cache settings here at all
+
+      # 🚨 THE FIX: We install EAS manually instead of using the broken GitHub Action
+      - name: Install EAS CLI Manually
+        run: npm install -g eas-cli
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build Android APK (Free Tier)
+        run: |
+          cd frontend
+          eas build --platform android --profile preview --local false --non-interactive
+
+      - name: Build iOS Simulator App (Free Tier)
+        run: |
+          cd frontend
+          eas build --platform ios --profile preview --local false --non-interactive

@@ -1,0 +1,148 @@
+{
+  "theme": "Dark Mode",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) combined with Archetype 2 (Performance Pro) for a tactical, scientific laboratory aesthetic.",
+  "reasoning": "A dark, highly technical UI is ideal for laboratory environments where contrast and legibility of critical numbers (countdown timers) are paramount. The use of deep obsidian backgrounds with pure white text and stark cyan/amber accents mimics scientific instrumentation.",
+  "typography": {
+    "font_family": {
+      "heading": "IBM Plex Sans, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "hierarchy": {
+      "h1": "text-4xl font-bold tracking-tight text-white",
+      "h2": "text-2xl font-semibold tracking-tight text-white",
+      "h3": "text-xl font-medium tracking-tight text-slate-200",
+      "body": "text-base text-slate-300 leading-relaxed",
+      "small": "text-sm text-slate-400",
+      "timer_display": "text-5xl font-mono font-bold tracking-tighter text-cyan-400",
+      "label_overline": "text-xs font-mono uppercase tracking-[0.2em] text-slate-500"
+    },
+    "guidelines": [
+      "Use JetBrains Mono for all timers, sample IDs, and numeric metrics.",
+      "Use IBM Plex Sans for headings and reading text.",
+      "Apply tight tracking to large headings to maintain a dense, technical feel."
+    ]
+  },
+  "colors": {
+    "background": {
+      "app": "#09090B",
+      "surface": "#18181B",
+      "surface_elevated": "#27272A"
+    },
+    "text": {
+      "primary": "#FAFAFA",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A",
+      "inverse": "#09090B"
+    },
+    "brand": {
+      "primary": "#06B6D4",
+      "primary_hover": "#22D3EE",
+      "primary_muted": "rgba(6, 182, 212, 0.15)"
+    },
+    "status": {
+      "active": "#06B6D4",
+      "warning": "#F59E0B",
+      "critical": "#EF4444",
+      "success": "#10B981",
+      "removed": "#3F3F46"
+    },
+    "borders": {
+      "default": "#27272A",
+      "active": "#06B6D4"
+    }
+  },
+  "layout_and_spacing": {
+    "strategy": "The 'Control Room' Grid - Mobile First",
+    "spacing_scale": "Tailwind standard (p-2, p-4, p-6, p-8). Generous vertical padding for scrolling lists, tight padding within data cards.",
+    "container": "w-full max-w-md mx-auto min-h-screen bg-[#09090B]",
+    "card": {
+      "padding": "p-5",
+      "border_radius": "rounded-none md:rounded-lg",
+      "border": "border border-zinc-800",
+      "background": "bg-zinc-900",
+      "shadow": "shadow-none"
+    }
+  },
+  "components": {
+    "ExperimentCard": {
+      "description": "The main component for tracking active experiments.",
+      "style_rules": [
+        "Flat solid background (bg-zinc-900), no drop shadows, 1px solid border (border-zinc-800).",
+        "Layout: Vertical stack. Header (Sample ID + Condition Label) -> Body (Researcher Name, Start Date) -> Footer (Large Mono Timer + Progress Bar).",
+        "Progress bar: Slim (h-2), full width, colored based on time remaining (Cyan -> Amber -> Red).",
+        "Removed State: Grayscale, opacity-50, with 'REMOVED' stamp."
+      ]
+    },
+    "CountdownTimer": {
+      "description": "Digital readout of remaining time.",
+      "style_rules": [
+        "Font: JetBrains Mono.",
+        "Color: Cyan (active), Red (completed/waiting removal).",
+        "Format: HH:MM:SS format."
+      ]
+    },
+    "PrimaryButton": {
+      "description": "Main Call to Action (Start Experiment, Confirm Removal).",
+      "style_rules": [
+        "Full width for mobile (w-full).",
+        "Background: bg-cyan-500, Text: text-zinc-950 font-semibold.",
+        "Sharp corners (rounded-sm) to match technical feel.",
+        "Hover/Active state must maintain high contrast."
+      ]
+    },
+    "Forms": {
+      "description": "New Experiment creation inputs.",
+      "style_rules": [
+        "Floating labels or distinct overline labels.",
+        "Inputs: bg-zinc-900, border-zinc-700, focus:border-cyan-500.",
+        "Large touch targets for mobile (min-h-[48px])."
+      ]
+    },
+    "BottomNavigation": {
+      "description": "Primary mobile navigation.",
+      "style_rules": [
+        "Fixed to bottom.",
+        "Glassmorphism: backdrop-blur-xl bg-zinc-950/80, top border border-zinc-800.",
+        "Icons only + subtle label for active state."
+      ]
+    }
+  },
+  "interactions_and_motion": {
+    "hover_states": "Buttons and cards should slightly lighten on hover (bg-zinc-800).",
+    "active_states": "Tap targets must have immediate visual feedback (scale down 0.98 or bg-zinc-700).",
+    "auto_clear": "When an experiment is marked as 'Removed', transition opacity to 50%, hold for 2 minutes, then slide out gracefully.",
+    "accessibility": "Use aria-live regions for timer completions. Ensure all inputs have associated labels."
+  },
+  "image_urls": {
+    "app_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/2778a74e-1e2d-438b-8b8e-38a34357d8b5/images/607e4271677e82683e1509c0ea9b040c7f74ffefcb21febf0b78596eea1f4688.png",
+      "description": "Abstract dark mode background for login or empty states.",
+      "category": "background"
+    },
+    "experiment_sample_1": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/2778a74e-1e2d-438b-8b8e-38a34357d8b5/images/baf48b415a8c8faed8932081c8c1cbf7265b5a098979d43243947e11f99ec7e8.png",
+      "description": "Close up of a metallic sample undergoing testing.",
+      "category": "photo_attachment"
+    },
+    "experiment_sample_2": {
+      "url": "https://images.unsplash.com/photo-1612058237353-6213b412a1c4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxtZXRhbCUyMGNvcnJvc2lvbiUyMG1hdGVyaWFsJTIwdGVzdGluZ3xlbnwwfHx8fDE3Nzg5NDg5OTJ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Corroded material sample.",
+      "category": "photo_attachment"
+    },
+    "researcher_solomon": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/2778a74e-1e2d-438b-8b8e-38a34357d8b5/images/cdd2a9ae83c79ecfff90d9a722e863883bc7ef0f4f090f15b28d73bda9837fb7.png",
+      "description": "Portrait of Researcher Solomon.",
+      "category": "avatar"
+    }
+  },
+  "instructions_to_main_agent": [
+    "This is a mobile-first web application (React Native Expo style UI). Ensure the main container is restricted in width (max-w-md) and centered on desktop to emulate a mobile screen.",
+    "Install Google Fonts 'IBM Plex Sans' and 'JetBrains Mono' for typography.",
+    "Implement Lucide-React or Phosphor Icons for the bottom navigation and UI elements.",
+    "Use Shadcn UI components for Forms, Inputs, Selects, Dialogs, but customize them heavily to remove the default rounded Vercel look. Make them flat and sharp.",
+    "For the countdown logic, use a reliable React hook that updates every second.",
+    "Implement local notifications using standard web APIs (or mock them for the browser environment).",
+    "Add 'data-testid' attributes to all interactive elements."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "expo": {
+    "name": "Ageing Monitor",
+    "slug": "ageing-monitor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "ageingmonitor",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourname.ageingmonitor", 
+      "infoPlist": {
+        "NSCameraUsageDescription": "Capture sample photos during ageing tests",
+        "NSPhotoLibraryUsageDescription": "Attach sample photos to experiment records"
+      }
+    },
+    "android": {
+      "package": "com.yourname.ageingmonitor",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#09090B"
+      },
+      "edgeToEdgeEnabled": true,
+      "permissions": ["CAMERA", "READ_MEDIA_IMAGES", "POST_NOTIFICATIONS"]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#09090B"
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#06B6D4"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Attach sample photos to experiment records",
+          "cameraPermission": "Capture sample photos during ageing tests"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b84c8a13-993d-4aef-b087-c62c4a019a99"
+      }
+    }
+  }
+}
